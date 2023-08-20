@@ -1,0 +1,37 @@
+<div class="w-full flex flex-col items-center justify-center mt-4">
+  <div class="bg-[#001F54] text-2xl text-white p-4 rounded-md flex items-center font-bold w-[700px]">
+    <a href="/" class="text-white hover:text-gray-300 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Frequência por {{ nome }}
+    </a>
+  </div>
+  <div class="w-[700px] mt-4 mx-auto">
+    <table class="w-full border-collapse border-t border-b border-gray-300">
+      <thead>
+        <tr class="bg-white">
+          <th class="px-6 py-3 text-center font-semibold border-b border-gray-300">#</th>
+          <th class="px-6 py-3 text-center font-semibold border-b border-gray-300">Período</th>
+          <th class="px-6 py-3 text-center font-semibold border-b border-gray-300">Frequência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of frequencia[0]?.res; let i = index">
+          <tr class="bg-[#ECECEC] even:bg-white">
+            <td class="px-6 py-4 text-center border-b border-gray-300">{{ i + 1 }}</td>
+            <td class="px-6 py-4 text-center border-b border-gray-300">{{ item.periodo }}</td>
+            <td class="px-6 py-4 text-center border-b border-gray-300">{{ item.frequencia.toLocaleString() }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <tfoot>
+        <tr class="bg-white">
+          <td class="px-6 py-4 font-semibold text-center">Total</td>
+          <td></td>
+          <td class="px-6 py-4 font-semibold text-center border-b border-gray-300">{{ getTotalFrequencia() }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
